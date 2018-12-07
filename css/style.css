@@ -1,0 +1,27 @@
+/*Load Kollektif font  */
+@font-face {
+    font-family: "Kollektif";
+    src: url('../fonts/Kollektif.ttf')
+}
+/*load  */
+@import url('https://fonts.googleapis.com/css?family=Inconsolata');
+
+p.inc {
+  font-family: "Inconsolata", monospace;
+}
+
+input[type="checkbox"][id="1"] {
+  display: none;
+}
+
+input[type="checkbox"][id="2"] {
+  display: none;
+}
+
+input[type="checkbox"][id="3"] {
+  display: none;
+}
+div.layout-admin {
+  height: 150px;
+  margin-bottom: 15px;
+}

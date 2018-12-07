@@ -1,0 +1,44 @@
+[
+  {
+    "name": "Cubano Sandiwch",
+    "description": "Sliced roasted pork, ham and swiss cheese. Pickles and cuban dressing",
+    "price": 8.75,
+    "identifier": "s1"
+  },
+  {
+    "name": "Pan con Pollo",
+    "description": "Grilled chicken, with garlic sauce, fresh lettuce and tomatoes",
+    "price": 7.75,
+    "identifier": "s2"
+  },
+  {
+    "name": "Ropa Vieja Sandwich",
+    "description": "Shredded beef in our signature sauce. Lettuce and tomatoes",
+    "price": 7.75,
+    "identifier": "s3"
+  },
+  {
+    "name": "Pan con Bistec",
+    "description": "Thinly sliced beef steak, grilled with garlic and onions",
+    "price": 7.75,
+    "identifier": "s4"
+  },
+  {
+    "name": "Berenjena Sandwich",
+    "description": "Grilled eggplant and mushrooms, lettuce and sliced tomatoes",
+    "price": 7.75,
+    "identifier": "s5"
+  },
+  {
+    "name": "Pan con Lechon",
+    "description": "Roasted seasoned pork chunks, grilled onions and garlic sauce",
+    "price": 7.75,
+    "identifier": "s6"
+  },
+  {
+    "name": "Pescado en salsa",
+    "description": "Basa filet in our tomato sauce. With lettuce and tomatoes",
+    "price": 7.75,
+    "identifier": "s7"
+  }
+]

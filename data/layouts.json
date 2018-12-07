@@ -1,0 +1,14 @@
+[
+ {
+	"name": "Fullscreen",
+	"img" :  "../../img/layout1.png"
+ },
+ {
+	"name" : "Left Side",
+	"img" : "../../img/layout2.png"
+ },
+ {
+	"name" : "Right Side",
+	"img" : "../../img/layout3.png"
+ }
+]
