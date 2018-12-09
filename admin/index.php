@@ -4,7 +4,7 @@ include 'php/errors.php';
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Create a new Screen</title>
+    <title>Acess my screens</title>
     <meta charset="utf-8" />
     <meta name="description" content="Create a new screen" />
     <meta name="author" content="Eduardo Vega" />
@@ -21,7 +21,13 @@ include 'php/errors.php';
         <form action="../php/new_screen_creation.php" method="POST">
           <input type="submit" class="btn btn-primary" href="admin/" value="Create New Screen"></input>
         </form>
-        <!--TODO: add view current screens-->
+
+      </div>
+      <div class="jumbotron container-fluid">
+        <h1 class="display-4">Access my screens</h1>
+        <hr class="my-4" />
+        <p class="inc">Click the button below to acess your screens</p>
+        <a class="btn btn-primary" href="view-screens/" >Access my screens</a>
       </div>
     </div>
   </body>

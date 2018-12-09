@@ -1,16 +1,23 @@
 <?php
+// get the layout file for the names
 $layout_file = '../../data/layouts.json';
 
 $layouts = json_decode(file_get_contents($layout_file), true);
 session_start();
 // get layout value from selection
-$layout_value = $_GET['layout_selection'];
+$layout_value = $_GET['layout_selection']; /// which one was sent from previous screen
 $uploaded = $layout_value;
 $_SESSION['uploaded'] = $uploaded;
+
+// is it first
+if (isset($_GET['isFirst']))
+{
+  $isFirst = $_GET['isFirst'];
+}
 // message from upload action
 $alert = $_GET['message'];
 // get filename from upload function
-$img_uploaded = $_GET['filename'];
+$img_uploaded = $_GET['filename']; // get message if it was uploaded
 if($alert == 1){
   $alert = "<div class='alert alert-success'>Image $img_uploaded was uploaded</div>";
 } elseif ($alert == 2) {
@@ -24,11 +31,11 @@ switch ($layout_value)
     $l = 0;
     break;
   case 2:
-    $message = "Submit left side first, then all right side slides";
+    $message = "Submit your static left side first";
     $l = 1;
     break;
   case 3:
-    $message = "Submit all your slides, and finally the right side";
+    $message = "Submit all your slides, and click the checkbox once you're ready to upload the static right side";
     $l = 2;
     break;
 }
@@ -52,15 +59,58 @@ switch ($layout_value)
         <br /><img class="img-responsive" src="<?php echo $layouts[$l]["img"];  ?>" />
         <hr class="my-4" />
         <p><?php
-          echo $message;
+
+          if (isset($isFirst))
+          {
+            if ($isFirst == 1)
+            {
+              $message = "Static image was uploaded. Please upload your slideshow images.";
+              echo $message;
+            }
+          }
+          else
+          {
+            echo $message;
+          }
+
          ?></p>
         <form name="upload" action="../../php/upload.php?uploaded=<?php echo $layout_value ?>" method="POST" enctype="multipart/form-data">
-          <div class="form-control layout-admin">
-            <p class="form-text">Only PNG images allowed</p>
-            <label for="image">Select image to upload</label>
-            <input type="hidden" value="<?php echo $layout_value; ?>"/>
-            <input type="file" name="image" />
-            <input type="submit" name="upload" value="Upload" class="btn btn-primary" />
+          <div class="layout-admin">
+            <div class="form-group">
+              <p class="form-text"><?php
+              if($_GET['last'] == 1)
+              {
+                echo "All images uploaded. Please click the Go to my screen button below to access your screen ";
+              }
+              else
+              {
+                echo "Only PNG images allowed";
+              } ?>
+            </p>
+            </div>
+            <div class="form-group">
+              <label for="image">
+                <?php
+                if($_GET['last'] == 1)
+                {}
+                else
+                {
+                  echo "Select image to upload";
+                } ?>
+              </label>
+              <input type="hidden" value="<?php echo $layout_value; ?>"/>
+              <input <?php if ($_GET['last'] == 1) { echo "disabled"; } ?> class="form-control-file" type="file" name="image" />
+            </div>
+            <?php
+            if ($layout_value == 3 && $_GET['last'] !=1)
+            {
+              echo "
+              <div class='form-group'>
+                <label for='isStaticId' class='form-check-label'>Is this the static image?</label>
+                <input class='form-check-input' type='checkbox' name='isStatic' id='isStaticId' />
+              </div>";
+            }  ?>
+            <input <?php if ($_GET['last'] == 1) { echo "disabled"; } ?>  type="submit" name="upload" value="Upload" class="btn btn-primary" />
           </div>
         </form>
         <div class="container">

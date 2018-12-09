@@ -22,6 +22,17 @@ input[type="checkbox"][id="3"] {
   display: none;
 }
 div.layout-admin {
-  height: 150px;
   margin-bottom: 15px;
+}
+/*LSIDE stuff*/
+div.lside-container{
+  padding: 0;
+}
+.form-check-input {
+  margin-left: 0.25rem !important; /*fix weird padding issue*/
+}
+.flight {
+  position: absolute;
+  top: 0;
+  right: 0;
 }

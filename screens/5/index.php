@@ -8,7 +8,28 @@
 <body>
   <div class='container-fluid lside-container'>
     <div class='slideshow'>
-<?php $img_list_lside = json_decode(file_get_contents("../../data/lside4.json"), true); $i=0; foreach($img_list_lside as $key => $img){ $new_img = str_replace("\\", "", $img); if ($i==0){echo "<div class=pull-left><img class=lside-static-img src=" . "../" . "$new_img /></div>";}elseif ($i==1){echo "<div class=siema><div><img class=img-responsive src=" . "../" . "$new_img /></div>";}else{echo "<div><img class=img-responsive src=" . "../" . "$new_img /></div>";}$i++;}?>      </div>
+
+    <?php
+      $img_list_rside = json_decode(file_get_contents("../../data/rside5.json"), true);
+      $how_many_rside = sizeof($img_list_rside);
+      $i = 0;
+      foreach ($img_list_rside as $key => $img)
+      {
+        $new_img = str_replace("\\", "", $img);
+        if ($i == 0)
+        {
+          echo "<div class=siema>";
+        }
+
+        if (++$i === $how_many_rside)
+        {
+          echo "</div><div class=flight><img class=img-responsive src=" . "../" . "$new_img />";
+          exit;
+        }
+        echo "<div><img class=img-responsive src=" . "../" . "$new_img /></div>";
+      }
+    ?>
+          </div>
     </div>
   </div>
   <script type='text/javascript' src='../../js/siema.min.js'></script>

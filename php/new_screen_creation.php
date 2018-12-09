@@ -39,7 +39,9 @@ $xy  = strval($y); //parse to string
 // have to reset umask in order to create the folder
 // with the permisions i want
 $oldmask = umask(0);
-mkdir($screens_dir .  $xy, 0775, true);
+if (!file_exists($screens_dir . $xy)){
+  mkdir($screens_dir .  $xy, 0775, true);
+}
 chown($screens_dir . $xy, 'bitnami');
 umask($oldmask);
 // save dir to new screens list
